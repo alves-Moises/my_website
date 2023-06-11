@@ -1,0 +1,91 @@
+@tailwind components;
+
+@layer components {
+    .common-container {
+        @apply mx-auto
+        max-w-7xl
+        sm:px-6
+        lg:px-8;
+
+        &__buttons {
+            @apply flex
+            items-center
+            gap-4;
+        }
+
+        .content {
+            @apply bg-white
+            p-4
+            shadow
+            sm:rounded-lg
+            sm:p-8;
+        }
+    }
+
+    .common-form {
+        @apply mt-6
+            w-full
+            space-y-6;
+    }
+
+    .common-h1 {
+        @apply text-xl
+            font-semibold
+            leading-tight
+            text-gray-800;
+    }
+
+    .common-h2 {
+        @apply text-lg
+            font-medium
+            text-gray-900;
+    }
+
+    .common-p {
+        &.-small {
+            @apply mt-1
+                text-sm
+                text-gray-600;
+        }
+
+        &.-error {
+            @apply mt-2
+                text-sm
+                text-red-600;
+        }
+
+        &.-success {
+            @apply text-sm
+                text-green-700;
+        }
+    }
+
+    a {
+        @apply rounded-md
+            text-sm
+            text-gray-600
+            underline
+            hover:text-gray-900
+            focus:outline-none
+            focus:ring-2
+            focus:ring-indigo-500
+            focus:ring-offset-2;
+    }
+
+    .common-input {
+        @apply mt-1
+            block
+            w-full
+            rounded-md
+            border-gray-300
+            shadow-sm
+            focus:border-indigo-500
+            focus:ring-indigo-500;
+
+        &.-select {
+            option {
+                @apply text-gray-700;
+            }
+        }
+    }
+}

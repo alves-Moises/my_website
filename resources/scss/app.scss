@@ -1,0 +1,531 @@
+@use "animations.scss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/** Common Tags **/
+html {
+    scroll-behavior: smooth;
+}
+
+/** Common Tags **/
+body {
+    @apply bg-black;
+}
+
+@layer components {
+    /** App Page **/
+    .app-page {
+        @apply relative
+        flex
+        flex-col
+        items-center
+        justify-center;
+    }
+
+    /** Main Header **/
+    .main-header {
+        @apply fixed
+        top-0
+        z-50
+        flex
+        w-full
+        items-center
+        justify-between
+        bg-black
+        bg-opacity-90
+        px-7
+        py-2
+        capitalize
+        text-white
+        lg:px-20;
+
+        /** Main Header **/
+        & > .logo {
+            @apply flex
+            items-center
+            bg-transparent
+            shadow-md;
+        }
+
+        /** Main Header **/
+        & > .logo > .image {
+            @apply w-4
+            md:w-7;
+
+            &:first-of-type {
+                @apply animate-float;
+            }
+
+            &:last-of-type {
+                @apply animate-float-reverse;
+            }
+        }
+
+        /** Main Header **/
+        & > .logo > .text {
+            @apply pl-3
+            text-sm
+            font-bold
+            text-white
+            lg:text-2xl;
+        }
+
+        /** Main Header **/
+        & > .icon {
+            @apply w-5 cursor-pointer lg:hidden;
+        }
+
+        /** Main Header **/
+        & > .navigation {
+            @apply hidden
+            h-1
+            h-full
+            gap-2
+            lg:flex;
+        }
+
+        /** Main Header **/
+        & > .navigation > .link {
+            @apply rounded-md
+            px-3
+            py-1
+            transition-all
+            duration-200
+            hover:animate-pulse
+            hover:bg-purple-500;
+
+            &.-active {
+                @apply bg-purple-500;
+            }
+        }
+    }
+
+    /** Global Overlay **/
+    .global-overlay {
+        @apply fixed
+        right-0
+        right-[1000px]
+        top-0
+        z-40
+        hidden
+        min-h-screen
+        min-w-full
+        bg-black
+        bg-opacity-70
+        transition-all
+        duration-1000;
+
+        &.-visible {
+            @apply right-0 flex;
+        }
+    }
+
+    /** Menu Mobile **/
+    .menu-mobile {
+        @apply fixed
+        -right-[100%]
+        top-0
+        z-50
+        flex
+        min-h-screen
+        w-11/12
+        flex-col
+        items-end
+        justify-start
+        gap-8
+        bg-purple-500
+        p-5
+        text-white
+        transition-all
+        duration-1000;
+
+        /** Menu Mobile **/
+        &.-visible {
+            @apply right-0;
+        }
+
+        /** Menu Mobile **/
+        & > .navigation {
+            @apply flex
+            flex-col
+            gap-6;
+        }
+
+        /** Menu Mobile **/
+        & > .navigation > .link {
+            @apply text-right
+            text-4xl
+            capitalize
+            text-white;
+            &.-active {
+                @apply underline;
+            }
+        }
+
+        /** Menu Mobile **/
+        & > .navigation > .close {
+            @apply fixed
+            bottom-0
+            right-0
+            text-white;
+        }
+    }
+
+    /** Main Banner **/
+    .main-banner {
+        @apply relative
+        z-30
+        flex
+        min-h-screen
+        w-full
+        flex-col
+        items-center
+        justify-center
+        pb-0;
+
+        /** Main Banner **/
+        & > .video {
+            @apply absolute
+            max-h-screen
+            min-h-screen
+            w-full
+            bg-center
+            object-cover;
+        }
+
+        /** Main Banner **/
+        & > .call {
+            @apply relative
+            z-10
+            flex
+            max-w-3xl
+            scale-75
+            flex-col
+            items-center
+            gap-5
+            pt-6
+            text-center
+            text-4xl
+            text-white;
+        }
+
+        /** Main Banner **/
+        & > .call > .image {
+            @apply animate-float
+            w-full
+            max-w-sm
+            rounded-2xl
+            bg-custom-dark-900
+            px-8
+            py-6
+            shadow-xl
+            md:max-w-xl;
+        }
+
+        /** Main Banner **/
+        & > .call > .decoration {
+            @apply absolute
+            bottom-0
+            w-full
+            -rotate-180
+            transform;
+        }
+
+        /** Main Banner **/
+        & > .call > .text {
+            @apply text-5xl
+                font-bold
+                leading-normal
+                drop-shadow-md;
+        }
+
+        /** Main Banner **/
+        & > .call > .text > .highlight {
+            @apply rounded
+                bg-purple-500
+                px-2
+                font-semibold;
+        }
+
+        /** Main Banner **/
+        & > .call > .point {
+            @apply point-down w-10 pt-10;
+        }
+    }
+
+    /** Features Section **/
+    .features-section {
+        @apply flex
+            w-full
+            max-w-[20rem]
+            flex-col
+            items-center
+            pb-10
+            pt-10
+            md:max-w-xl
+            lg:max-w-5xl;
+
+        /** Features Section **/
+        & > .title {
+            @apply w-full
+                self-center
+                py-5
+                pb-0
+                pt-8
+                text-center
+                text-4xl
+                text-white;
+        }
+
+        /** Features Section **/
+        & > .description {
+            @apply max-w-[20rem]
+                py-5
+                text-center
+                text-sm
+                text-gray-500
+                md:max-w-xl
+                md:self-center
+                md:text-center
+                md:text-lg;
+        }
+
+        /** Features Section **/
+        & > .cards {
+            @apply grid
+                w-full
+                max-w-sm
+                grid-cols-1
+                gap-8
+                md:max-w-3xl
+                md:grid-cols-2
+                lg:max-w-7xl
+                lg:grid-cols-3;
+        }
+
+        /** Features Section **/
+        & > .cards > .card {
+            @apply flex
+                min-h-[370px]
+                max-w-sm
+                flex-col
+                items-center
+                rounded-[1rem]
+                bg-night-coal-900
+                px-5
+                py-10
+                text-center
+                text-white;
+        }
+
+        /** Features Section **/
+        & > .cards > .card:hover .icon {
+            @apply bg-purple-500
+            transition-colors
+            duration-500;
+        }
+
+        /** Features Section **/
+        & > .cards > .card > .icon {
+            @apply animate-float
+                min-w-[5.5rem]
+                rounded-[1.9rem]
+                bg-night-coal-800
+                p-6
+                text-4xl;
+        }
+
+        /** Features Section **/
+        & > .cards > .card > .title {
+            @apply py-6
+                text-xl
+                font-bold;
+        }
+
+        /** Features Section **/
+        & > .cards > .card > .description {
+            @apply leading-loose
+                text-gray-400;
+        }
+    }
+
+    /** Technologies Section **/
+    .technologies-section {
+        @apply flex
+            h-[60rem]
+            w-full
+            items-center
+            justify-center
+            gap-8
+            bg-night-coal-900
+            lg:h-[40rem];
+
+        /** Technologies Section **/
+        & > .wrapper {
+            @apply flex
+            w-full
+            max-w-5xl
+            flex-col-reverse
+            items-center
+            justify-between
+            gap-8
+            overflow-hidden
+            md:gap-0
+            lg:h-[40rem]
+            lg:flex-row;
+        }
+
+        /** Technologies Section **/
+        & > .wrapper > .description {
+            @apply max-w-[20rem] lg:max-w-xl;
+        }
+
+        /** Technologies Section **/
+        & > .wrapper > .image {
+            @apply rotate-infinite rounded-full;
+        }
+
+        /** Technologies Section **/
+        & > .wrapper > .description > .title {
+            @apply pb-3
+            text-center
+            text-3xl
+            leading-[2.4rem]
+            text-white
+            lg:max-w-full
+            lg:text-left
+            lg:text-4xl
+            lg:leading-[4rem];
+        }
+
+        /** Technologies Section **/
+        & > .wrapper > .description > .text {
+            @apply max-w-xl
+            pr-2
+            text-center
+            text-lg
+            text-gray-400
+            lg:max-w-lg
+            lg:text-left;
+        }
+    }
+
+    /** Contact Section **/
+    .contact-section {
+        @apply flex w-full
+        flex-col
+        items-center
+        justify-center
+        gap-8
+        bg-black;
+
+        /** Contact Section **/
+        & > .wrapper {
+            @apply flex
+            h-full
+            w-full
+            max-w-[20rem]
+            flex-col
+            items-center
+            justify-between
+            gap-8
+            pt-10
+            lg:max-w-5xl
+            lg:flex-row-reverse;
+        }
+
+        /** Contact Section **/
+        & > .wrapper > .image {
+            @apply scale-75;
+        }
+
+        /** Contact Section **/
+        & > .wrapper > .description {
+            @apply flex
+            flex-col
+            gap-y-5;
+        }
+
+        /** Contact Section **/
+        & > .wrapper > .description > .title {
+            @apply max-w-lg
+            text-center
+            text-4xl
+            leading-[4rem]
+            text-white
+            lg:text-left;
+        }
+
+        /** Contact Section **/
+        & > .wrapper > .description > .text {
+            @apply max-w-lg
+            text-center
+            text-lg
+            text-gray-400
+            lg:text-left;
+        }
+
+        /** Contact Section **/
+        & > .wrapper > .description > .form {
+            @apply flex
+            justify-between
+            gap-3
+            pb-2
+            text-white;
+        }
+
+        /** Contact Section **/
+        & > .wrapper > .description > .form > .button {
+            @apply flex
+            max-h-20
+            w-2/12
+            items-center
+            justify-center
+            rounded-lg
+            border-purple-400
+            bg-purple-500
+            text-white
+            transition
+            duration-500
+            hover:bg-purple-400;
+        }
+
+        /** Contact Section **/
+        & > .wrapper > .description > .form > .button > .icon {
+            @apply w-5;
+        }
+
+        /** Contact Section **/
+        & > .wrapper > .description > .form > .email {
+            @apply block
+            w-10/12
+            rounded-lg
+            border-indigo-200
+            border-transparent
+            bg-night-coal-800
+            p-3
+            text-2xl
+            text-lg
+            text-white
+            shadow-sm
+            hover:border-indigo-400
+            focus:border-indigo-500
+            focus:ring-indigo-500;
+        }
+
+        /** Contact Section **/
+        & > .footer {
+            @apply flex
+            w-full
+            items-center
+            justify-center
+            whitespace-nowrap
+            bg-night-coal-900 p-10
+            text-sm
+            text-white
+            lg:text-xl;
+        }
+    }
+}

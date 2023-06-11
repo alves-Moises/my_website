@@ -1,0 +1,86 @@
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(6px);
+    }
+}
+
+@keyframes bounce-reverse {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes bounce-no-repeat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes fade-blink {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+        opacity: 1;
+    }
+    100% {
+        background-position: 0 50%;
+        opacity: 0.7;
+    }
+}
+
+@keyframes point-down {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+.rotate-infinite {
+    animation: rotation 15s linear infinite;
+}
+
+.bounce-no-repeat {
+    animation: bounce-no-repeat 0.3s ease-in-out;
+}
+
+.animate-float {
+    animation: bounce 3s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+    animation: bounce-reverse 4s ease-in-out infinite;
+}
+
+.fade-blink {
+    animation: fade-blink 0.5s ease-in-out infinite;
+}
+
+.point-down {
+    animation: point-down 0.5s linear infinite;
+}

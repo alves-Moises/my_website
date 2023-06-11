@@ -1,0 +1,57 @@
+@tailwind components;
+
+@layer components {
+    .button {
+        @apply inline-flex
+            items-center
+            whitespace-nowrap
+            rounded-md
+            border
+            px-3
+            py-2
+            text-xs
+            font-normal
+            tracking-widest
+            shadow-sm
+            transition
+            duration-150
+            ease-in-out
+            focus:outline-none
+            disabled:opacity-25;
+
+        &.-primary {
+            @extend .button;
+            @apply border-transparent
+                bg-green-600
+                text-white
+                hover:bg-green-700
+                focus:bg-green-700
+                focus:ring-2
+                focus:ring-indigo-500
+                focus:ring-offset-2
+                active:bg-green-900;
+        }
+
+        &.-secondary {
+            @extend .button;
+            @apply border-gray-300
+                bg-white
+                text-gray-700
+                hover:bg-gray-50
+                focus:ring-2
+                focus:ring-indigo-500
+                focus:ring-offset-2;
+        }
+
+        &.-danger {
+            @apply border-transparent
+                bg-red-600
+                text-white
+                hover:bg-red-500
+                focus:ring-2
+                focus:ring-red-500
+                focus:ring-offset-2
+                active:bg-red-700;
+        }
+    }
+}
