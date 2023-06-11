@@ -80,6 +80,7 @@
                     <div class="slide">
                         <h3 class="title">Hardware</h3>
                         <hr class="separator">
+                        <hr class="separator">
                         <ul>
                             <li>Formataçao de computador</li>
                             <li>Backups</li>
