@@ -11,8 +11,6 @@ class Slider {
 
         this.START = 0;
 
-        this.nextOffset = this.slideOffset * this.currentSlide;
-
         this.track = document.querySelector("[data-slider-track]");
 
         this.previousSlideButton = document.querySelector("[data-left-button]");
@@ -26,20 +24,28 @@ class Slider {
         this.trackOffset = this.track.scrollWidth;
     }
 
+    reset() {
+        this.currentSlide = 0;
+    }
+
     increment() {
-        this.currentSlide += 1;
+        if (this.canMoveNext) {
+            this.currentSlide += 1;
+        }
     }
 
     decrement() {
-        this.currentSlide -= 1;
+        if (this.canMoveBack) {
+            this.currentSlide -= 1;
+        }
     }
 
     canMoveNext() {
-        return this.currentSlide < this.totalSlides - 1;
+        return this.currentSlide < this.totalSlides - 2;
     }
 
     canMoveBack() {
-        return this.currentSlide < this.totalSlides;
+        return this.currentSlide > 0;
     }
 
     canMoveFree() {
@@ -49,15 +55,20 @@ class Slider {
     movePrevious() {
         if (this.canMoveBack()) {
             this.decrement();
-            this.track.style.left = `-${this.nextOffset}px`;
+            const nextOffset = this.slideOffset * this.currentSlide;
+            this.track.style.left = `-${nextOffset}px`;
         }
     }
 
     moveNext() {
         if (this.canMoveNext()) {
             this.increment();
-            this.track.style.left = `${this.nextOffset}px`;
+            const nextOffset = this.slideOffset * this.currentSlide;
+            this.track.style.left = `-${nextOffset}px`;
+            return;
         }
+        this.currentSlide = 0;
+        this.track.style.left = "0px";
     }
 
     init() {
