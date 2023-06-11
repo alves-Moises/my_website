@@ -56,7 +56,7 @@
                         portfólio
                     </a>
                     <a class="link" href="#contact">
-                        como chegar
+                        como chegar...
                     </a>
                     <a class="link" href="#contact">
                         CONTATO
@@ -76,20 +76,24 @@
         <section id="services" class="services-section">
             <h2 class="title">Serviços</h2>
             <section class="wrapper">
-                <div class="track">
-                    <div class="slide">
-                        <h3 class="title">Hardware</h3>
-                        <hr class="separator">
-                        <ul>
-                            <li>Formataçao de computador</li>
-                            <li>Backups</li>
-                            <li>Troca de peças</li>
-                            <li>Limpeza</li>
-                            <li>Configuração de impressora</li>
-                        </ul>
-                    </div>
+                <div data-slider-track class="track">
+                    @for ($i = 0; $i < 10; $i++)
+                        <div data-slide class="slide">
+                            <h3 class="title">Hardware {{ $i }}</h3>
+                            <hr class="separator">
+                            <ul class="list">
+                                <li>Formataçao de computador</li>
+                                <li>Backups</li>
+                                <li>Troca de peças</li>
+                                <li>Limpeza</li>
+                                <li>Configuração de impressora</li>
+                            </ul>
+                        </div>
+                    @endfor
                 </div>
             </section>
+            <button class="text-white bg-purple-500 p-6" data-left-button>left</button>
+            <button class="text-white bg-purple-500 p-6" data-right-button>right</button>
         </section>
 
         <section id="technologies" class="technologies-section">
