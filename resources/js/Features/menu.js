@@ -47,7 +47,6 @@ const listenLinks = () => {
         ".main-header > .navigation > .link"
     );
 
-    console.log(desktopLinks)
 
     desktopLinks.forEach((link) => {
         link.addEventListener("click", (event) => {
