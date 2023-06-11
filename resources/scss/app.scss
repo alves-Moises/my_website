@@ -33,26 +33,24 @@ body {
         w-full
         items-center
         justify-between
-        bg-black
-        bg-opacity-90
         px-7
         py-2
         capitalize
         text-white
+
         lg:px-20;
 
         /** Main Header **/
         & > .logo {
             @apply flex
             items-center
-            bg-transparent
-            shadow-md;
+            bg-transparent;
         }
 
         /** Main Header **/
         & > .logo > .image {
-            @apply w-4
-            md:w-7;
+            @apply w-10
+            md:w-20;
 
             &:first-of-type {
                 @apply animate-float;
@@ -80,8 +78,6 @@ body {
         /** Main Header **/
         & > .navigation {
             @apply hidden
-            h-1
-            h-full
             gap-2
             lg:flex;
         }
@@ -94,10 +90,10 @@ body {
             transition-all
             duration-200
             hover:animate-pulse
-            hover:bg-purple-500;
+            hover:bg-primary;
 
             &.-active {
-                @apply bg-purple-500;
+                @apply bg-primary;
             }
         }
     }
@@ -113,7 +109,7 @@ body {
         min-h-screen
         min-w-full
         bg-black
-        bg-opacity-70
+        bg-opacity-60
         transition-all
         duration-1000;
 
@@ -185,6 +181,19 @@ body {
         justify-center
         pb-0;
 
+        & > .background {
+            @apply min-h-screen
+            w-full
+            object-cover;
+        }
+
+        & > .overlay {
+            @apply absolute
+                inset-0
+                bg-black
+                bg-opacity-60;
+        }
+
         /** Main Banner **/
         & > .video {
             @apply absolute
@@ -197,7 +206,7 @@ body {
 
         /** Main Banner **/
         & > .call {
-            @apply relative
+            @apply absolute
             z-10
             flex
             max-w-3xl
@@ -256,16 +265,15 @@ body {
     }
 
     /** Features Section **/
-    .features-section {
+    .services-section {
         @apply flex
             w-full
             max-w-[20rem]
+            max-w-[83%]
             flex-col
             items-center
             pb-10
-            pt-10
-            md:max-w-xl
-            lg:max-w-5xl;
+            pt-10;
 
         /** Features Section **/
         & > .title {
@@ -274,80 +282,40 @@ body {
                 py-5
                 pb-0
                 pt-8
-                text-center
+                text-left
                 text-4xl
                 text-white;
         }
 
-        /** Features Section **/
-        & > .description {
-            @apply max-w-[20rem]
-                py-5
-                text-center
-                text-sm
-                text-gray-500
-                md:max-w-xl
-                md:self-center
-                md:text-center
-                md:text-lg;
+        & > .wrapper {
         }
 
-        /** Features Section **/
-        & > .cards {
-            @apply grid
-                w-full
-                max-w-sm
-                grid-cols-1
-                gap-8
-                md:max-w-3xl
-                md:grid-cols-2
-                lg:max-w-7xl
-                lg:grid-cols-3;
+        & > .wrapper > .track {
+            @apply flex;
         }
 
-        /** Features Section **/
-        & > .cards > .card {
-            @apply flex
-                min-h-[370px]
-                max-w-sm
-                flex-col
-                items-center
-                rounded-[1rem]
-                bg-night-coal-900
-                px-5
-                py-10
-                text-center
-                text-white;
+        & > .wrapper > .track > .slide {
+            @apply bg-night-coal-800
+            min-h-[350px]
+            min-w-[280px]
+            rounded-lg
+            pl-4
+            pt-8
+            pb-4
+            pr-4
+            text-white;
         }
 
-        /** Features Section **/
-        & > .cards > .card:hover .icon {
-            @apply bg-purple-500
-            transition-colors
-            duration-500;
+        & > .wrapper > .track > .slide > .title {
+            @apply text-white
+            font-normal
+            text-center
+            pb-3
+            text-lg;
         }
 
-        /** Features Section **/
-        & > .cards > .card > .icon {
-            @apply animate-float
-                min-w-[5.5rem]
-                rounded-[1.9rem]
-                bg-night-coal-800
-                p-6
-                text-4xl;
-        }
-
-        /** Features Section **/
-        & > .cards > .card > .title {
-            @apply py-6
-                text-xl
-                font-bold;
-        }
-
-        /** Features Section **/
-        & > .cards > .card > .description {
-            @apply leading-loose
-                text-gray-400;
+        & > .wrapper > .track > .slide > .separator {
+            @apply border-gray-200;
         }
     }
 
