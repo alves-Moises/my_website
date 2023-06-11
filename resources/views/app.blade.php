@@ -59,7 +59,7 @@
                         como chegar
                     </a>
                     <a class="link" href="#contact">
-                        contato
+                        CONTATO
                     </a>
                 </nav>
             </header>
@@ -82,7 +82,6 @@
                         <hr class="separator">
                         <ul>
                             <li>Formataçao de computador</li>
-                            <li>Backups</li>
                             <li>Backups</li>
                             <li>Troca de peças</li>
                             <li>Limpeza</li>
