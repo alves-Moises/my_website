@@ -59,7 +59,7 @@
                         como chegar
                     </a>
                     <a class="link" href="#contact">
-                        contato
+                        CONTATO
                     </a>
                 </nav>
             </header>
