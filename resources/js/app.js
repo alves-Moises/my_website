@@ -9,8 +9,6 @@ class Slider {
 
         this.currentOffset = 0;
 
-        this.START = 0;
-
         this.track = document.querySelector("[data-slider-track]");
 
         this.previousSlideButton = document.querySelector("[data-left-button]");
