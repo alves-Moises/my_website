@@ -83,6 +83,7 @@
                         <ul>
                             <li>Formataçao de computador</li>
                             <li>Backups</li>
+                            <li>Backups</li>
                             <li>Troca de peças</li>
                             <li>Limpeza</li>
                             <li>Configuração de impressora</li>
