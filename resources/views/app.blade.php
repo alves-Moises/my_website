@@ -86,7 +86,6 @@
                             <li>Troca de peças</li>
                             <li>Limpeza</li>
                             <li>Configuração de impressora</li>
-                            <li>Troca de fonte</li>
                         </ul>
                     </div>
                 </div>
